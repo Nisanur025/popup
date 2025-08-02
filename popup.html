@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .popup-overlay{
+            display: none; /* ile görünür olaylarını ayarlarsın şuanda görünür değil  */
+            position: fixed;
+            top:50vh;
+            left:50vh;
+            width:500px;
+            height:auto;
+            background-color: aliceblue;
+        }
+        .popup{
+            padding:20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            border-radius: 5%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .popup-content{
+            text-align: center;
+        }
+        .close{
+            padding:15px;
+            position: absolute;
+            top:10px;
+            right: 15px;
+            cursor:pointer;
+            font-size: 30px;
+        }
+        .popup button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            
+        }
+        .popup button:hover{
+            background-color: #3e9041;
+        }
+        #openPopup{
+            padding:10px;
+            text-align: center;
+            background-color: cadetblue;
+            border:none;
+            border-radius: 10%;
+            position:absolute;
+            top:300px;
+            left:500px;
+            width:100px;
+            height: 50px;
+        }
+        #openPopup:hover{
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="openPopup">Popup Aç</button>
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup" id="popup">
+            <span class="close" id="closePopup">&times;</span>
+            <div class="popup-content">
+                <h1>Hoşgeldiniz</h1>
+                <p>Özel teklifler almak için kaydolun...</p>
+                <div class="button-container">
+                    <button onclick="onayla()" id="onayla">Onayla</button>
+                    <button onclick="iptal()" id="iptal">İptal</button>
+                </div>
+            </div>
+        </div>
+        <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                const popupOverlay = document.getElementById('popupOverlay');
+                const openPopupBtn = document.getElementById('openPopup');
+                const closePopup = document.getElementById('closePopup');
+                const onayla = document.getElementById('onayla');
+                const iptal = document.getElementById('iptal');
+
+                // Popup Aç
+                openPopupBtn.addEventListener('click', function () {
+                    popupOverlay.style.display = 'block';
+                     document.getElementById("overlay").style.display = "block";
+                });
+
+                // Popup Kapat (çarpıya tıklayınca)
+                closePopup.addEventListener('click', function () {
+                    popupOverlay.style.display = 'none';
+                });
+
+                // Onayla Butonu
+                onayla.addEventListener('click', function () {
+                    alert("Onaylanmıştır");
+                });
+
+                // İptal Butonu
+                iptal.addEventListener('click', function () {
+                    alert("İptal edilmiştir.");
+                });
+                });
+        </script>
+
+    </div>
+    
+</body>
+</html>
